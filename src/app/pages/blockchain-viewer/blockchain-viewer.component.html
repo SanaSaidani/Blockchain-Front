@@ -1,0 +1,19 @@
+<div class="container">
+    <h1>Blocks on the chain</h1>
+    <p>Click on a block to see its transactions</p>
+
+    <app-block-viewer
+        *ngFor="let block of blocks"
+        [block] = "block"
+        (click)="showTransactions(block)"
+    ></app-block-viewer>
+</div>
+
+<br><br>
+
+<div class="container">
+    <h1>Transactions inside this block</h1>
+    <app-transaction-table
+    [transactions]="selectedBlock.transactions"
+    ></app-transaction-table>
+</div>
